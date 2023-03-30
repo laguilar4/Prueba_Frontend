@@ -11,6 +11,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchComponent } from './components/search/search.component';
 import { PopularsComponent } from './components/populars/populars.component';
+import { JwtHelperService, JWT_OPTIONS }  from '@auth0/angular-jwt';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,9 @@ import { PopularsComponent } from './components/populars/populars.component';
     LoginComponent,
     RegisterComponent,
     SearchComponent,
-    PopularsComponent
+    PopularsComponent,
+    SidebarComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -26,11 +31,11 @@ import { PopularsComponent } from './components/populars/populars.component';
     SpinnerModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS, useClass:SpinnerInterceptor, multi:true
-  }],
+  }, { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },JwtHelperService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
