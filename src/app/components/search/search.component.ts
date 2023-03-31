@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { MovieService } from 'src/app/services/movie.service';
 import { SearchService } from 'src/app/services/search.service';
 
 
@@ -10,7 +11,7 @@ import { SearchService } from 'src/app/services/search.service';
 })
 export class SearchComponent {
 
-  constructor(public fb: FormBuilder, public searchSVC: SearchService) { }
+  constructor(public fb: FormBuilder, public searchSVC: SearchService, public movieSVC : MovieService) { }
 
   public searchForm = this.fb.group({
     name:['']
@@ -26,6 +27,20 @@ export class SearchComponent {
       console.log(err);
 
     });
+  }
+
+  saveFavorites(title: string, overview: string, poster_path: string):void
+  {
+    this.movieSVC.save(title, overview, poster_path).subscribe(res => 
+      {
+        console.log(res);
+        //this.rolsvc.allroles = res;
+      }, 
+      err => 
+      {
+        console.log(err);
+        //console.log(err);
+      });
   }
 
 }

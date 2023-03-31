@@ -8,7 +8,7 @@ export class SpinnerService {
 
   isLoading$ = new Subject<boolean>();
   constructor() { }
-
+  //Mostrar y Esconder
   show():void{
     this.isLoading$.next(true);
   }

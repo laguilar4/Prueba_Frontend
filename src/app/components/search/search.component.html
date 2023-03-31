@@ -1,9 +1,9 @@
 <div class="row">
-  <div style="padding: 30px;">
+  <div>
     <form [formGroup]="searchForm"  (ngSubmit)="getMovies()">
-      <label for="name" class="text-info">Nombre:</label><br>
+      <label for="name" class="text-info">Name:</label><br>
       <input type="text" name="name" id="name" formControlName="name" class="form-control">
-      <button class="btn btn-primary" type="submit">Buscar</button>
+      <button style="float: right;" class="btn btn-primary" type="submit">Search</button>
     </form>
   </div>
 </div>
@@ -14,7 +14,8 @@
           <img class="card-img-top" src="https://image.tmdb.org/t/p/w500/{{item.poster_path}}" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">{{item.title}}</h5>
-            <p class="card-text">{{item.release_date}}</p>
+            <p class="card-text">{{item.overview}}</p>
+            <a class="btn btn-primary" (click) = "saveFavorites(item.title! , item.overview! , item.poster_path!)">Add to Favorite</a>
           </div>
         </div>
   </div>

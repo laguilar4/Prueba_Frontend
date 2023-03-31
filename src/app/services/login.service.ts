@@ -7,10 +7,11 @@ import { JwtHelperService } from '@auth0/angular-jwt';
   providedIn: 'root'
 })
 export class LoginService {
+
   URL_API = 'http://localhost:3000/api/';
 
   constructor(private http: HttpClient, private jwtHelper: JwtHelperService) { }
-
+  //Verificar que el token este en el local storage y no este expirado
   isAuth():boolean{
     const token = localStorage.getItem('user_token');
     if(this.jwtHelper.isTokenExpired(token) || !localStorage.getItem('user_token')){
@@ -18,7 +19,7 @@ export class LoginService {
     }
     return true;
   }
-
+  //Consumir endpoint para iniciar sesion
   login(user: string, password:string)
   {
     const body = {
@@ -33,10 +34,10 @@ export class LoginService {
       }
       ));
   }
-
+  //Consumir endpoint para registrarse
   register(user: user)
   {
-    return this.http.post(`${this.URL_API}/register`, user);
+    return this.http.post(`${this.URL_API}login/register`, user);
   }
 
 }

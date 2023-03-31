@@ -40,7 +40,7 @@ export class RegisterComponent {
   {
     this.loginSVC.register(this.registerForm.value).subscribe(
       res => {
-
+        this.router.navigate(['/login']);
       }, 
       err => {
         

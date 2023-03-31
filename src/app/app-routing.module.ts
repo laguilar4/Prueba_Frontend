@@ -7,12 +7,15 @@ import { SearchComponent } from './components/search/search.component';
 import { PopularsComponent } from './components/populars/populars.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AuthGuard } from './guards/auth.guard';
+import { FavoritesComponent } from './components/favorites/favorites.component';
 
 const routes: Routes = [
+  { path: 'register', component:RegisterComponent},
   { path: 'main', component: NavbarComponent, canActivate: [AuthGuard],
   children: [
     { path: 'search', component: SearchComponent, canActivate: [AuthGuard]},
-    { path: 'populars', component: PopularsComponent, canActivate: [AuthGuard]}
+    { path: 'populars', component: PopularsComponent, canActivate: [AuthGuard]},
+    { path: 'favorites', component: FavoritesComponent, canActivate: [AuthGuard]}
   ]},
   { path: 'login', component:LoginComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'login' }

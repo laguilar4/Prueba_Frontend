@@ -14,6 +14,7 @@ import { PopularsComponent } from './components/populars/populars.component';
 import { JwtHelperService, JWT_OPTIONS }  from '@auth0/angular-jwt';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { FavoritesComponent } from './components/favorites/favorites.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     SearchComponent,
     PopularsComponent,
     SidebarComponent,
-    NavbarComponent
+    NavbarComponent,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule,

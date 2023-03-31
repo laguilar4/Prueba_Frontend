@@ -1,11 +1,10 @@
 <div class="row">
-    <div class="col-md-3" *ngFor = "let item of popularSVC.movie">
+    <div class="col-md-3" *ngFor = "let item of movieSVC.movie">
         <div class="card" style="width: 18rem;">
             <img class="card-img-top" src="https://image.tmdb.org/t/p/w500/{{item.poster_path}}" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">{{item.title}}</h5>
               <p class="card-text">{{item.overview}}</p>
-              <a class="btn btn-primary" (click) = "saveFavorites(item.title! , item.overview! , item.poster_path!)">Add to Favorite</a>
             </div>
           </div>
     </div>

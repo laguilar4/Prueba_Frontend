@@ -7,6 +7,7 @@ import { movie } from 'src/app/interfaces/populars';
   providedIn: 'root'
 })
 export class SearchService {
+  //endpoint de buscar con apikey
   URL_API = 'https://api.themoviedb.org/3/search/movie?api_key=b5cd8024b0bd0d599e81c620eaef1994&query=';
   constructor(private http: HttpClient) { }
   movie?:movie[];
